@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+  <head>
+      <meta charset="UTF-8">
+    <title>Phone-Manager</title>
+    <link rel="stylesheet" th:href="@{css/style.css}">
+  </head>
+  <body>
+    <div class="container">
+      <p class="icon">Shazzar</p>
+      <div class="btns">
+        <a href="#" class="btn signIn">Sign In</a>
+        <a href="create-user.html" th:href="@{/user/newUser}" class="btn signUp">Sign Up</a>
+      </div>
+    </div>
+  </body>
+</html>

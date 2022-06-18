@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Phone_Manager- view</title>
+    <link rel="stylesheet" th:href="@{/css/display.css}">
+</head>
+    <body>
+        <div class="container-dad">
+            <div class="container">
+                <div class="userName"><h3>User Name Stays Here</h3></div>
+
+                <ul> <!-- REPLACE THE LI ELEMENTS BELOW -->
+                    <li th:if="${contacts.empty}">
+                        <p colspan="2">No contact saved yet</p>
+                    </li>
+                    <li th:each="contact:${contacts}">
+                        <h4 th:text="${contact.name}"></h4>
+                        <h6 th:text="${contact.mobile}"></h6>
+                    </li>
+                </ul>
+
+                <div class="add"><a th:href="addContact.html">Add contact</a></div>
+            </div>
+        </div>
+
+    </body>
+</html>

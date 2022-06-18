@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Phone-Manager</title>
+        <link rel="stylesheet" th:href="@{/css/create.css}">
+    </head>
+    <body>
+        <div class="container">
+            <h2>Create Account</h2>
+            <form th:action="@{/user/new-user}" th:object="${user}" method="post">
+                <input class="form-control"
+                       type="text" name="name"
+                       th:field = "*{name}" placeholder="Enter name" required>
+
+                <input class="form-control"
+                       type="text" name="userName"
+                       th:field = "*{userName}" placeholder="Username">
+
+                <input class="form-control"
+                       type="tel" name="mobileNumber"
+                       th:field = "*{mobileNumber}" placeholder="Mobile number" >
+
+                <input class="form-control"
+                       type="password" name="password"
+                       th:field = "*{password}" placeholder="Password" required>
+
+                <input class="form-control"
+                       type="password" name="passwordVerify"
+                       th:field = "*{passwordVerify}" placeholder="confirm Password" required>
+
+                <div class="btns">
+                    <button class="btn sub" type="submit">Submit</button>
+                    <a href="index.html" th:href="@{http://localhost:8083}" class="btn return" type="reset">Back</a>
+
+                </div>
+
+            </form>
+
+        </div>
+    </body>
+</html>
