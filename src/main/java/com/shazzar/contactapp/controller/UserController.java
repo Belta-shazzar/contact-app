@@ -22,6 +22,7 @@ public class UserController {
         this.contactService = contactService;
     }
 
+//    Endpoint for "create user" view
     @GetMapping("/newUser")
     public String addUserForm(Model model) {
         User user = new User();
@@ -29,10 +30,24 @@ public class UserController {
         return "create-user";
     }
 
+//    On submit, this endpoint is triggered to save the user's data
     @PostMapping("/new-user")
     public String saveUser(@Valid @ModelAttribute("user") User user) {
         userService.addUser(user);
         return "redirect:/user/get-contacts/" + user.getId();
+    }
+
+    @GetMapping("/login")
+    public String loginForm(Model model) {
+        User user = new User();
+        model.addAttribute("user", user);
+        return "login";
+    }
+
+    @GetMapping("/existing-user")
+    public String getByMobile(@ModelAttribute("user") User user) {
+        User theUser = userService.getByMobile(user.getMobileNumber(), user.getPassword());
+        return "redirect:/user/get-contacts/" + theUser.getId();
     }
 
     @GetMapping("/get-contacts/{userId}")

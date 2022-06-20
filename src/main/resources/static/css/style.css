@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: #ccc;
+    background-color: black;
     /* background: linear-gradient(to right, #fff, #d5edf8); */
     font-family: 'Montserrat', sans-serif;
     display: block;
@@ -16,6 +16,7 @@ body {
     background-color: #E1EBEE;
     height: 90vh;
     width: 350px;
+    /*width: 100%;*/
     margin: 2em auto;
     padding: 15px;
     border-radius: 9px;

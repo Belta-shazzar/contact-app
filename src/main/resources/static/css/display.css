@@ -5,14 +5,14 @@
 }
 
 body {
-    background-color: #ccc;
+    background-color: black;
     font-family: 'Montserrat', sans-serif;
     display: block;
 }
 
-.container-dad {
+.parent-container {
     height: 100vh;
-    padding: 24px 0;
+    /* padding: px 0; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,7 +27,7 @@ body {
 }
 
 ul {
-    height: 90vh;
+    height: 81vh;
     overflow-y: scroll;
 }
 

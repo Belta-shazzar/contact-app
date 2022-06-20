@@ -45,8 +45,6 @@ public class User {
     @OneToMany(mappedBy = "user", fetch = FetchType.EAGER)
     private List<Contact> contact;
 
-
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

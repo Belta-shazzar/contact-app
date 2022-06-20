@@ -9,5 +9,7 @@ public interface UserService {
     User addUser(User user);
     User getById(long id);
     List<ContactResponseDto> getUserContact(long id);
+    ContactResponseDto getContactById(long userId, long contactId);
+    User getByMobile(String number, String password);
 
 }
