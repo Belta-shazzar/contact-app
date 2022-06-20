@@ -5,30 +5,75 @@
 }
 
 body {
-    background-color: black;
     font-family: 'Montserrat', sans-serif;
-    display: block;
 }
 
-.parent-container {
+.container-dad {
+    background-color: black;
     height: 100vh;
-    /* padding: px 0; */
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .container {
-    /* box-shadow: 3px 3px 3px 3px rgba(0, 0, 0, 0.2); */
     background-color: #E1EBEE;
     width: 350px;
-    padding: 15px;
     border-radius: 9px;
+    position: relative;
+}
+
+header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #e1f3f8f3;
+    width: 100%;
+    padding: 13px;
+    text-align: center;
+    border-top-left-radius: 9px;
+    border-top-right-radius: 9px;
+}
+
+.userName {
+    color: #13274F;
+    margin-top: 13px;
+}
+
+.add-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 25px;
+    position: relative;
+}
+
+.hor {
+    position: absolute;
+    left: 27%;
+    top: 47%;
+    background-color: #13274F;
+    width: 25px;
+    height: 3px;
+}
+
+.ver {
+    position: absolute;
+    top: 25%;
+    left: 49%;
+    background-color: #13274F;
+    height: 25px;
+    width: 3px;
+}
+
+.empty-list {
+    position: absolute;
+    top: 47%;
+    left: 100px;
 }
 
 ul {
-    height: 81vh;
+    height: 82vh;
     overflow-y: scroll;
+    padding: 15px;
 }
 
 ul::-webkit-scrollbar {
@@ -41,7 +86,16 @@ ul::-webkit-scrollbar {
     background-color: transparent;
     border: none;
     border-bottom: 1px solid #ccc;
-    margin-bottom: 35px;
+    margin-bottom: 20px;
     padding: 7px 8px;
     outline: none;
+}
+
+h4 {
+    letter-spacing: 0.8px;
+}
+
+h6 {
+    margin-top: 5px;
+    letter-spacing: 1.2px;
 }

@@ -1,28 +1,35 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
-<head>
-    <meta charset="UTF-8">
-    <title>Phone_Manager- view</title>
-    <link rel="stylesheet" th:href="@{/css/display.css}">
-</head>
-    <body>
-        <div class="parent-container">
-            <div class="container">
-                <div class="userName"><h3>User Name Stays Here</h3></div>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Phone_Manager- view</title>
+        <link rel="stylesheet" th:href="@{/css/display.css}">
 
+    </head>
+    <body>
+        <div class="container-dad">
+            <div class="container">
+                <header>
+                    <div class="userName" th:text="@{userName}"><h3>User Name Stays Here</h3></div>
+                    <div class="add-btn">
+                        <a href="#" class="btn">
+                            <div class="hor"></div>
+                            <div class="ver"></div>
+                        </a>
+                    </div>
+                </header>
                 <ul> <!-- REPLACE THE LI ELEMENTS BELOW -->
-                    <li th:if="${contacts.empty}">
+                    <div class="empty-list" th:if="${contacts.empty}">
                         <p colspan="2">No contact saved yet</p>
-                    </li>
-                    <li th:each="contact:${contacts}">
+                    </div>
+                    <li class="row" th:each="contact:${contacts}">
                         <h4 th:text="${contact.name}"></h4>
                         <h6 th:text="${contact.mobile}"></h6>
                     </li>
                 </ul>
-
-                <div class="add"><a th:href="@{/contacts/newContact}">Add contact</a></div>
             </div>
         </div>
-
     </body>
 </html>
