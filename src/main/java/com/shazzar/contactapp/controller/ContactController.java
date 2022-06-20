@@ -22,7 +22,7 @@ public class ContactController {
 
     @GetMapping("/newContact")
     public String addContactForm(Model model) {
-        ContactRequestDto contact = new ContactRequestDto();
+        Contact contact = new Contact();
         model.addAttribute("contact", contact);
         return "addContact";
     }
