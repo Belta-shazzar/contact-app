@@ -34,6 +34,12 @@ header {
     border-top-right-radius: 9px;
 }
 
+.img {
+    margin-top: 8px;
+    height: 35px;
+    width: 35px;
+}
+
 .userName {
     color: #13274F;
     margin-top: 13px;
@@ -84,8 +90,14 @@ ul::-webkit-scrollbar {
     width: 6px;
 }
 
+a {
+    text-decoration: none;
+}
+
 .row {
-    display: inline-block;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
     width: 100%;
     background-color: transparent;
     border: none;
@@ -93,6 +105,23 @@ ul::-webkit-scrollbar {
     margin-bottom: 20px;
     padding: 7px 8px;
     outline: none;
+}
+
+.act {
+    margin-top: 15px;
+}
+
+.blue {
+    color: #191970;
+}
+
+.red {
+    margin-left: 3px;
+    color: #CD5C5C;
+}
+
+.red:hover , .blue:hover {
+    text-decoration: underline;
 }
 
 h4 {

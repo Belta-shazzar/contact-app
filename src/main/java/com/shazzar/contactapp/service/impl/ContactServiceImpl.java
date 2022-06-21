@@ -1,10 +1,7 @@
 package com.shazzar.contactapp.service.impl;
 
-import com.shazzar.contactapp.dto.Mapper;
 import com.shazzar.contactapp.dto.requestDto.ContactRequestDto;
-import com.shazzar.contactapp.dto.responseDto.ContactResponseDto;
 import com.shazzar.contactapp.entity.Contact;
-import com.shazzar.contactapp.entity.User;
 import com.shazzar.contactapp.repository.ContactRepository;
 import com.shazzar.contactapp.service.ContactService;
 import com.shazzar.contactapp.service.UserService;
@@ -38,5 +35,11 @@ public class ContactServiceImpl implements ContactService {
         contact.setUser(userService.getById(contactRequestDto.getUserId()));
 
         return contactRepo.save(contact);
+    }
+
+    @Override
+    public void deleteContact(long contactId) {
+        Contact contact = getById(contactId);
+        contactRepo.delete(contact);
     }
 }

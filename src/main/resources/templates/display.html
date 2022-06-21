@@ -12,6 +12,9 @@
         <div class="container-dad">
             <div class="container">
                 <header>
+                    <a th:href="@{http://localhost:8083}">
+                        <img th:src="@{/css/back.png}" alt="back" class="img">
+                    </a>
                     <div class="userName"><h3 th:text="${user.userName}">User Name</h3></div>
                     <div class="add-btn">
                         <a th:href="@{/contacts/newContact/} + ${user.id}" class="btn">
@@ -25,8 +28,14 @@
                         <p>No contact saved yet</p>
                     </div>
                     <li class="row" th:each="contact:${user.getContact()}">
-                        <h4 th:text="${contact.contactName}"></h4>
-                        <h6 th:text="${contact.mobileNumber}"></h6>
+                        <div>
+                            <h4 th:text="${contact.contactName}"></h4>
+                            <h6 th:text="${contact.mobileNumber}"></h6>
+                        </div>
+                        <div class="act">
+                            <a class="btn blue" href="#">Edit</a>
+                            <a class="btn red" th:href="@{/user/delete/} + ${user.id} + '/' + ${contact.id}" >Delete</a>
+                        </div>
                     </li>
                 </ul>
             </div>

@@ -58,5 +58,12 @@ public class UserController {
         return "display";
     }
 
+    @GetMapping("/delete/{userId}/{contactId}")
+    public String deleteContact(@PathVariable("userId") long userId,
+                              @PathVariable("contactId") long contactId) {
+        userService.deleteUserContact(userId, contactId);
+        return "redirect:/user/get-contacts/" + userId;
+    }
+
 
 }
