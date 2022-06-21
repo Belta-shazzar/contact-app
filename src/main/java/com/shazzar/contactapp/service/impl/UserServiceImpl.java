@@ -37,26 +37,26 @@ public class UserServiceImpl implements UserService {
                 new IllegalArgumentException("User does not exist"));
     }
 
-    @Override
-    public List<ContactResponseDto> getUserContact(long id) {
-//        Get user, and return list of user's contact
-        User user = getById(id);
-        List<Contact> contacts = user.getContact();
-        return Mapper.contactToContactDtos(contacts);
-    }
-
-    @Override
-    public ContactResponseDto getContactById(long userId, long contactId) {
-        User user = getById(userId);
-//        Risky code
-        Contact savedContact = contactService.getById(contactId);
-        for (Contact contact : user.getContact()) {
-            if (contact.getId().equals(contactId)) {
-                savedContact = contact;
-            }
-        }
-        return Mapper.contactToContactDto(savedContact);
-    }
+//    @Override
+//    public List<ContactResponseDto> getUserContact(long id) {
+////        Get user, and return list of user's contact
+//        User user = getById(id);
+//        List<Contact> contacts = user.getContact();
+//        return Mapper.contactToContactDtos(contacts);
+//    }
+//
+//    @Override
+//    public ContactResponseDto getContactById(long userId, long contactId) {
+//        User user = getById(userId);
+////        Risky code
+//        Contact savedContact = contactService.getById(contactId);
+//        for (Contact contact : user.getContact()) {
+//            if (contact.getId().equals(contactId)) {
+//                savedContact = contact;
+//            }
+//        }
+//        return Mapper.contactToContactDto(savedContact);
+//    }
 
 //    Fix error handling problem later
     @Override

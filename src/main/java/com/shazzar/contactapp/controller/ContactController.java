@@ -20,19 +20,19 @@ public class ContactController {
         this.contactService = contactService;
     }
 
-    @GetMapping("/newContact")
-    public String addContactForm(Model model) {
-        Contact contact = new Contact();
+    @GetMapping("/newContact/{userId}")
+    public String addContactForm(Model model, @PathVariable("userId") long userId) {
+        ContactRequestDto contact = new ContactRequestDto();
+        contact.setUserId(userId);
         model.addAttribute("contact", contact);
         return "addContact";
     }
 
 //    Action link points here
-    @PostMapping("/add-contact/{userId}")
-    public String addContact(@Valid @ModelAttribute("contact")Contact contact,
-                             @PathVariable("userId") long userId) {
-        contactService.addContact(contact, userId);
-        return "redirect:/user/get-contacts/" + userId;
+    @PostMapping("/add-contact")
+    public String addContact(@Valid @ModelAttribute("contact")ContactRequestDto contact) {
+        contactService.addContact(contact);
+        return "redirect:/user/get-contacts/" + contact.getUserId();
     }
 
 

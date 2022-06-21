@@ -1,6 +1,7 @@
 package com.shazzar.contactapp.service.impl;
 
 import com.shazzar.contactapp.dto.Mapper;
+import com.shazzar.contactapp.dto.requestDto.ContactRequestDto;
 import com.shazzar.contactapp.dto.responseDto.ContactResponseDto;
 import com.shazzar.contactapp.entity.Contact;
 import com.shazzar.contactapp.entity.User;
@@ -24,19 +25,18 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
-    public ContactResponseDto addContact(Contact contact, long userId) {
-        User user = userService.getById(userId);
-//        Checks if user actually exist, before saving the contact
-        if (user != null) {
-            contact.setUser(user);
-            contactRepo.save(contact);
-        }
-        return Mapper.contactToContactDto(contact);
-    }
-
-    @Override
     public Contact getById(long contactId) {
         return contactRepo.findById(contactId).orElseThrow(() ->
                 new IllegalArgumentException("Contact does not exist"));
+    }
+
+    @Override
+    public Contact addContact(ContactRequestDto contactRequestDto) {
+        Contact contact = new Contact();
+        contact.setContactName(contactRequestDto.getContactName());
+        contact.setMobileNumber(contactRequestDto.getMobileNumber());
+        contact.setUser(userService.getById(contactRequestDto.getUserId()));
+
+        return contactRepo.save(contact);
     }
 }

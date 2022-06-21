@@ -8,10 +8,11 @@
 <body>
 <div class="parent-container">
     <div class="container">
-        <form th:action="@{/contacts/add-contact}" th:object="${contact}" method="get">
+        <form th:action="@{/contacts/add-contact}" th:object="${contact}" method="post">
             <h2>Login</h2>
 
             <div class="form-controls">
+                <input type="hidden" th:value="${contact.userId}" name="userId">
                 <input class="form-control"
                        type="tel" name="contactName"
                        th:field = "*{contactName}" placeholder="Enter contact name" >
@@ -20,11 +21,10 @@
                        type="tel"
                        name="mobileNumber"
                        th:field = "*{mobileNumber}" placeholder="Enter mobile number" required>
-
             </div>
 
             <div class="form-foot">
-                <a href="index.html" th:href="@{http://localhost:8083}" class="return" type="reset">Cancel</a>
+                <input value="Go back" onclick="history.back()" class="return" type="button">
                 <button class="forgot-password">Add</button>
             </div>
 
@@ -34,4 +34,7 @@
 </div>
 </body>
 </html>
+
+
+<!--href="index.html" th:href="@{http://localhost:8083}"-->
 

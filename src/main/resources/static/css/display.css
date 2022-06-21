@@ -39,6 +39,10 @@ header {
     margin-top: 13px;
 }
 
+.add-btn:hover {
+    background-color: #E1EBEE;
+}
+
 .add-btn {
     width: 50px;
     height: 50px;

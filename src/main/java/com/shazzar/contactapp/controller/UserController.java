@@ -1,5 +1,6 @@
 package com.shazzar.contactapp.controller;
 
+import com.shazzar.contactapp.dto.Mapper;
 import com.shazzar.contactapp.entity.User;
 import com.shazzar.contactapp.service.ContactService;
 import com.shazzar.contactapp.service.UserService;
@@ -52,7 +53,10 @@ public class UserController {
 
     @GetMapping("/get-contacts/{userId}")
     public String getContacts(Model model, @PathVariable("userId") long userId) {
-        model.addAttribute("contacts", userService.getUserContact(userId));
+        User user = userService.getById(userId);
+        model.addAttribute(user);
         return "display";
     }
+
+
 }
