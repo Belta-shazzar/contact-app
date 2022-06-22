@@ -2,6 +2,7 @@ package com.shazzar.contactapp.service.impl;
 
 import com.shazzar.contactapp.dto.requestDto.ContactRequestDto;
 import com.shazzar.contactapp.entity.Contact;
+import com.shazzar.contactapp.entity.User;
 import com.shazzar.contactapp.repository.ContactRepository;
 import com.shazzar.contactapp.service.ContactService;
 import com.shazzar.contactapp.service.UserService;
@@ -29,6 +30,14 @@ public class ContactServiceImpl implements ContactService {
 
     @Override
     public Contact addContact(ContactRequestDto contactRequestDto) {
+        User user = userService.getById(contactRequestDto.getUserId());
+        for (Contact contact1 : user.getContact()) {
+            if (contact1.getContactName().equals(contactRequestDto.getContactName()) ||
+                    contact1.getMobileNumber().equals(contactRequestDto.getMobileNumber())) {
+                throw new IllegalArgumentException("A contact already exist with either this name or number");
+            }
+        }
+
         Contact contact = new Contact();
         contact.setContactName(contactRequestDto.getContactName());
         contact.setMobileNumber(contactRequestDto.getMobileNumber());

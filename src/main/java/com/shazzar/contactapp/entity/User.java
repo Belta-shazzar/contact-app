@@ -7,6 +7,7 @@ import javax.persistence.*;
 import javax.validation.constraints.NotBlank;
 
 import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 import java.util.List;
 import java.util.Objects;
@@ -28,7 +29,7 @@ public class User {
     @Size(min = 3, max = 30)
     private String userName;
 
-//    @Pattern()
+    @Pattern(regexp = "(0)?[7-9](0|1)[0-9]{8}", message = "Invalid mobile number")
     @NotNull(message = "field cannot be blank")
     @Column(unique = true)
     private String mobileNumber;
