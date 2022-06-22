@@ -35,10 +35,21 @@ public class ContactController {
         return "redirect:/user/get-contacts/" + contact.getUserId();
     }
 
+    @GetMapping("/edit/{contactId}")
+    public String editContact(@PathVariable("contactId") long contactId,
+                              Model model) {
+        Contact contact = contactService.getById(contactId);
+        model.addAttribute("contact", contact);
+        return "editContact";
+    }
 
-
-
-
+    @PostMapping("/update/{contactId}/{userId}")
+    public String updateContact(@PathVariable("contactId") long contactId,
+                                @PathVariable("userId") long userId,
+                                @ModelAttribute("contact") Contact contact) {
+        contactService.updateContact(contactId, contact);
+        return "redirect:/user/get-contacts/" + userId;
+    }
 
 }
 

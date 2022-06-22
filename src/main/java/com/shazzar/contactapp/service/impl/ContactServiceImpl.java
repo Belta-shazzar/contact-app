@@ -42,4 +42,13 @@ public class ContactServiceImpl implements ContactService {
         Contact contact = getById(contactId);
         contactRepo.delete(contact);
     }
+
+    @Override
+    public Contact updateContact(long id, Contact contact) {
+        Contact existingContact = getById(id);
+        existingContact.setContactName(contact.getContactName());
+        existingContact.setMobileNumber(contact.getMobileNumber());
+        contactRepo.save(existingContact);
+        return existingContact;
+    }
 }

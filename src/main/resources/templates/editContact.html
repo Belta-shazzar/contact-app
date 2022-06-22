@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Phone-Manager -Contact-update</title>
+    <link rel="stylesheet" href="css/addContact.css" th:href="@{/css/addContact.css}">
+</head>
+    <body>
+        <div class="parent-container">
+            <div class="container">
+                <form th:action="@{/contacts/update/} + ${contact.id} + '/' + ${contact.user.id}" th:object="${contact}" method="post">
+
+                    <h2>Contact</h2>
+
+                    <div class="form-controls">
+                        <input type="hidden" th:value="${contact.id}" name="id">
+                        <input type="hidden" th:value="${contact.user.id}" name="id">
+                        <input class="form-control"
+                               type="tel" name="contactName"
+                               th:field = "*{contactName}" placeholder="Enter contact name" >
+
+                        <input class="form-control"
+                               type="tel"
+                               name="mobileNumber"
+                               th:field = "*{mobileNumber}" placeholder="Enter mobile number" required>
+                    </div>
+
+                    <div class="form-foot">
+                        <input value="Go back" onclick="history.back()" class="return" type="button">
+                        <button class="forgot-password">Update</button>
+                    </div>
+
+                </form>
+
+            </div>
+        </div>
+    </body>
+</html>
+
+
+<!--href="index.html" th:href="@{http://localhost:8083}"-->

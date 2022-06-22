@@ -33,7 +33,7 @@
                             <h6 th:text="${contact.mobileNumber}"></h6>
                         </div>
                         <div class="act">
-                            <a class="btn blue" href="#">Edit</a>
+                            <a class="btn blue" th:href="@{/contacts/edit/} + ${contact.id}">Edit</a>
                             <a class="btn red" th:href="@{/user/delete/} + ${user.id} + '/' + ${contact.id}" >Delete</a>
                         </div>
                     </li>

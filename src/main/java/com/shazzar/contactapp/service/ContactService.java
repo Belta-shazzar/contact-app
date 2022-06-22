@@ -7,5 +7,6 @@ public interface ContactService {
    Contact getById(long contactId);
    Contact addContact(ContactRequestDto contactRequestDto);
    void deleteContact(long contactId);
+   Contact updateContact(long id, Contact contact);
 
 }

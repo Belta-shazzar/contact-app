@@ -1,6 +1,7 @@
 package com.shazzar.contactapp.controller;
 
 import com.shazzar.contactapp.dto.Mapper;
+import com.shazzar.contactapp.entity.Contact;
 import com.shazzar.contactapp.entity.User;
 import com.shazzar.contactapp.service.ContactService;
 import com.shazzar.contactapp.service.UserService;
@@ -64,6 +65,4 @@ public class UserController {
         userService.deleteUserContact(userId, contactId);
         return "redirect:/user/get-contacts/" + userId;
     }
-
-
 }
